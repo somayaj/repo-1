@@ -36,4 +36,11 @@ class GreetControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("OK"));
     }
+
+    @Test
+    void echoReturnsMessage() throws Exception {
+        mockMvc.perform(get("/echo").param("message", "hello there"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("hello there"));
+    }
 }
