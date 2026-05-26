@@ -44,14 +44,4 @@ public class GreetController {
     public String echo(@RequestParam String message) {
         return message;
     }
-
-    @GetMapping("/timestamp")
-    public String timestamp() {
-        return Instant.now().toString();
-    }
-
-    @GetMapping("/login")
-    public String login(@RequestParam String username) {
-        return "Logged in as " + username;
-    }
 }
