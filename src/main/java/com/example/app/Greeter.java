@@ -9,6 +9,6 @@ public class Greeter {
         if (name == null || name.isBlank()) {
             return "Hello, World!";
         }
-        return "Hello, " + name + "!";
+        return "Welcome, " + name + "!";
     }
 }
