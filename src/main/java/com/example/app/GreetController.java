@@ -48,4 +48,9 @@ public class GreetController {
         long seconds = duration.toSecondsPart();
         return String.format("%dh %dm %ds", hours, minutes, seconds);
     }
+
+    @GetMapping("/farewell")
+    public String farewell(@RequestParam(defaultValue = "") String name) {
+        return greeter.farewell(name);
+    }
 }
