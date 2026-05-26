@@ -35,4 +35,9 @@ public class GreetController {
         }
         return "Goodbye, " + name + "!";
     }
+
+    @GetMapping("/echo")
+    public String echo(@RequestParam String message) {
+        return message;
+    }
 }
