@@ -40,17 +40,8 @@ public class GreetController {
         return "Goodbye, " + name + "!";
     }
 
-    @GetMapping("/uptime")
-    public String uptime() {
-        Duration duration = Duration.between(startTime, Instant.now());
-        long hours = duration.toHours();
-        long minutes = duration.toMinutesPart();
-        long seconds = duration.toSecondsPart();
-        return String.format("%dh %dm %ds", hours, minutes, seconds);
-    }
-
-    @GetMapping("/farewell")
-    public String farewell(@RequestParam(defaultValue = "") String name) {
-        return greeter.farewell(name);
+    @GetMapping("/echo")
+    public String echo(@RequestParam String message) {
+        return message;
     }
 }
