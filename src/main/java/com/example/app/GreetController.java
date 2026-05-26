@@ -1,5 +1,8 @@
 package com.example.app;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetController {
 
     private final Greeter greeter;
+    private final Instant startTime = Instant.now();
 
     public GreetController(Greeter greeter) {
         this.greeter = greeter;
@@ -34,5 +38,14 @@ public class GreetController {
             return "Goodbye, World!";
         }
         return "Goodbye, " + name + "!";
+    }
+
+    @GetMapping("/uptime")
+    public String uptime() {
+        Duration duration = Duration.between(startTime, Instant.now());
+        long hours = duration.toHours();
+        long minutes = duration.toMinutesPart();
+        long seconds = duration.toSecondsPart();
+        return String.format("%dh %dm %ds", hours, minutes, seconds);
     }
 }
