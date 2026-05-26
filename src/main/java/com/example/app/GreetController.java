@@ -27,4 +27,12 @@ public class GreetController {
     public String version() {
         return "1.0.0";
     }
+
+    @GetMapping("/goodbye")
+    public String goodbye(@RequestParam(defaultValue = "") String name) {
+        if (name.isBlank()) {
+            return "Goodbye, World!";
+        }
+        return "Goodbye, " + name + "!";
+    }
 }
