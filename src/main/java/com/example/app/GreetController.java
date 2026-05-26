@@ -49,4 +49,9 @@ public class GreetController {
     public String timestamp() {
         return Instant.now().toString();
     }
+
+    @GetMapping("/login")
+    public String login(@RequestParam String username) {
+        return "Logged in as " + username;
+    }
 }
