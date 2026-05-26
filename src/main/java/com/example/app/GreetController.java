@@ -53,4 +53,9 @@ public class GreetController {
     public String farewell(@RequestParam(defaultValue = "") String name) {
         return greeter.farewell(name);
     }
+
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong";
+    }
 }
