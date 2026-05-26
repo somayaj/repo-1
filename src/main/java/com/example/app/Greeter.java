@@ -11,4 +11,11 @@ public class Greeter {
         }
         return "Welcome, " + name + "!";
     }
+
+    public String farewell(String name) {
+        if (name == null || name.isBlank()) {
+            return "Farewell, dear friend!";
+        }
+        return "Farewell, " + name + ". Until we meet again!";
+    }
 }
